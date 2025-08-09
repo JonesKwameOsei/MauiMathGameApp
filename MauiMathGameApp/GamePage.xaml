@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMathGameApp.GamePage"
+             Title="GamePage">
+  <ScrollView x:Name="MainScrollView">
+    <VerticalStackLayout Spacing="30"
+                         Padding="20,40,20,30">
+
+      <!-- Game Title Section -->
+      <VerticalStackLayout Spacing="10"
+                           HorizontalOptions="Center">
+        <Label Text="{Binding GameType, StringFormat='🎯 {0} Challenge'}"
+               FontFamily="CaveatBrush"
+               FontSize="32"
+               TextColor="#2E3440"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+        <Label Text="Solve the problem below!"
+               FontFamily="CaveatBrush"
+               FontSize="18"
+               TextColor="#5E81AC"
+               HorizontalOptions="Center"/>
+      </VerticalStackLayout>
+
+      <!-- Question Area -->
+      <VerticalStackLayout x:Name="QuestionArea"
+                           Spacing="25">
+
+        <!-- Question Card -->
+        <Border BackgroundColor="White"
+                Stroke="#88C0D0"
+                StrokeThickness="3"
+                Margin="10,20">
+          <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20"/>
+          </Border.StrokeShape>
+          <VerticalStackLayout Spacing="15"
+                               Padding="28">
+            <Label Text="Question:"
+                   FontFamily="CaveatBrush"
+                   FontSize="20"
+                   TextColor="#5E81AC"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+            <Label x:Name="QuestionLabel"
+                   FontFamily="CaveatBrush"
+                   FontSize="60"
+                   TextColor="#2E3440"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+          </VerticalStackLayout>
+        </Border>
+
+        <!-- Answer Input Card -->
+        <Border BackgroundColor="White"
+                Stroke="#A3BE8C"
+                StrokeThickness="2"
+                Margin="10,10">
+          <Border.StrokeShape>
+            <RoundRectangle CornerRadius="15"/>
+          </Border.StrokeShape>
+          <VerticalStackLayout Spacing="15"
+                               Padding="25">
+            <Label Text="Your Answer:"
+                   FontFamily="CaveatBrush"
+                   FontSize="18"
+                   TextColor="#A3BE8C"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+
+            <Entry x:Name="AnswerEntry"
+                   Keyboard="Numeric"
+                   Placeholder="Answer"
+                   FontFamily="CaveatBrush"
+                   FontSize="24"
+                   TextColor="#2E3440"
+                   PlaceholderColor="#8FBCBB"
+                   BackgroundColor="#ECEFF4"
+                   HorizontalOptions="Center"
+                   WidthRequest="180"
+                   HeightRequest="55"
+                   HorizontalTextAlignment="Center"/>
+          </VerticalStackLayout>
+        </Border>
+
+        <!-- Submit Button -->
+        <Border BackgroundColor="#5E81AC"
+                Stroke="Transparent"
+                Margin="20,10">
+          <Border.StrokeShape>
+            <RoundRectangle CornerRadius="25"/>
+          </Border.StrokeShape>
+          <Button x:Name="SubmitAnswer"
+                  Text="✅ Submit Answer"
+                  BackgroundColor="Transparent"
+                  TextColor="White"
+                  FontFamily="CaveatBrush"
+                  FontSize="22"
+                  FontAttributes="Bold"
+                  Clicked="OnAnswerSubmitted"
+                  Padding="30,18"/>
+        </Border>
+
+        <!-- Feedback Card -->
+        <Border BackgroundColor="#ECEFF4"
+                Stroke="#D8DEE9"
+                StrokeThickness="1"
+                Margin="10,10"
+                IsVisible="False"
+                x:Name="FeedbackCard">
+          <Border.StrokeShape>
+            <RoundRectangle CornerRadius="12"/>
+          </Border.StrokeShape>
+          <VerticalStackLayout Spacing="10"
+                               Padding="20">
+            <Label x:Name="AnswerLabel"
+                   FontFamily="CaveatBrush"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+          </VerticalStackLayout>
+        </Border>
+
+      </VerticalStackLayout>
+
+      <!-- Game Over Section -->
+      <VerticalStackLayout Spacing="20"
+                           x:Name="GameOverSection"
+                           IsVisible="False">
+
+        <!-- Results Card -->
+        <Border BackgroundColor="White"
+                Stroke="#EBCB8B"
+                StrokeThickness="3"
+                Margin="10,20">
+          <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20"/>
+          </Border.StrokeShape>
+          <VerticalStackLayout Spacing="15"
+                               Padding="30">
+            <Label Text="🎉 Game Complete! 🎉"
+                   FontFamily="CaveatBrush"
+                   FontSize="28"
+                   TextColor="#2E3440"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+            <Label x:Name="GameOverLabel"
+                   FontFamily="CaveatBrush"
+                   FontSize="22"
+                   TextColor="#5E81AC"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+          </VerticalStackLayout>
+        </Border>
+
+        <!-- Back to Menu Button -->
+        <Border BackgroundColor="#A3BE8C"
+                Stroke="Transparent"
+                Margin="20,10">
+          <Border.StrokeShape>
+            <RoundRectangle CornerRadius="25"/>
+          </Border.StrokeShape>
+          <Button x:Name="BackToMenuBtn"
+                  Text="🏠 Back to Main Menu"
+                  BackgroundColor="Transparent"
+                  TextColor="White"
+                  FontFamily="CaveatBrush"
+                  FontSize="20"
+                  FontAttributes="Bold"
+                  Clicked="OnBackToMenu"
+                  Padding="30,18"/>
+        </Border>
+
+      </VerticalStackLayout>
+
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

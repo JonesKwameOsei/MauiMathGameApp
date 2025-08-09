@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMathGameApp.PreviousGames"
+             Title="Game History">
+
+  <ScrollView Padding="20">
+    <VerticalStackLayout Padding="20">
+
+      <!-- Header Section -->
+      <Label
+        Text="Game History"
+        FontSize="32"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+
+      <!-- Statistics Summary Card -->
+      <Border BackgroundColor="#E3F2FD"
+              Stroke="Transparent"
+              StrokeThickness="0">
+        <Border.StrokeShape>
+          <RoundRectangle CornerRadius="10"/>
+        </Border.StrokeShape>
+        <VerticalStackLayout Padding="15"
+                             Spacing="5">
+          <Label x:Name="TotalGamesLabel"
+                 FontAttributes="Bold"
+                 TextColor="#1565C0"
+                 HorizontalOptions="Center"/>
+          <Label x:Name="AverageScoreLabel"
+                 TextColor="#1565C0"
+                 HorizontalOptions="Center"/>
+          <Label x:Name="BestScoreLabel"
+                 TextColor="#1565C0"
+                 HorizontalOptions="Center"/>
+          <Label x:Name="FavouriteGameLabel"
+                 TextColor="#1565C0"
+                 HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+      </Border>
+
+      <!-- Game History List -->
+      <Label Text="Recent Games"
+             FontSize="20"
+             FontAttributes="Bold"/>
+      <CollectionView x:Name="GamesCollectionView"
+                      ItemsSource="{Binding GameHistory}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <Grid Padding="10">
+              <Border BackgroundColor="White"
+                      Stroke="#E0E0E0"
+                      StrokeThickness="1">
+                <Border.StrokeShape>
+                  <RoundRectangle CornerRadius="5"/>
+                </Border.StrokeShape>
+                <Grid Padding="15">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                  </Grid.ColumnDefinitions>
+
+                  <!-- Game Type -->
+                  <Label Grid.Row="0"
+                         Grid.Column="0"
+                         Text="{Binding GameTypeDisplay}"
+                         FontAttributes="Bold"
+                         FontSize="16"
+                         TextColor="#212121"/>
+
+                  <!-- Score -->
+                  <Label Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalOptions="Center"
+                         TextColor="#212121">
+                    <Label.FormattedText>
+                      <FormattedString>
+                        <Span Text="{Binding Score}"/>
+                        <Span Text="/"/>
+                        <Span Text="{Binding TotalQuestions}"/>
+                        <Span Text=" correct"/>
+                      </FormattedString>
+                    </Label.FormattedText>
+                  </Label>
+
+                  <!-- Percentage -->
+                  <Label Grid.Row="0"
+                         Grid.Column="2"
+                         Grid.RowSpan="2"
+                         VerticalOptions="Center"
+                         Text="{Binding PercentageScore, StringFormat='{0:F0}%'}"
+                         HorizontalOptions="Center"
+                         FontAttributes="Bold"
+                         TextColor="#212121"/>
+
+                  <!-- Delete Button -->
+                  <Button Grid.Row="0"
+                          Grid.Column="3"
+                          Grid.RowSpan="2"
+                          ImageSource="trash.png"
+                          BackgroundColor="#E53935"
+                          BorderColor="#E53935"
+                          BorderWidth="0"
+                          WidthRequest="40"
+                          HeightRequest="40"
+                          CornerRadius="8"
+                          VerticalOptions="Center"
+                          Clicked="OnDeleteGameClicked"
+                          CommandParameter="{Binding}"/>
+
+                  <!-- Date -->
+                  <Label Grid.Row="1"
+                         Grid.ColumnSpan="3"
+                         Text="{Binding DatePlayed, StringFormat='Played on {0:MMM dd, yyyy \\a\\t HH:mm}'}"
+                         FontSize="12"
+                         TextColor="#757575"/>
+                </Grid>
+              </Border>
+            </Grid>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+
+      <!-- Empty State Message -->
+      <Label x:Name="EmptyStateLabel"
+             Text="No game played yet. Start playing to see your history."
+             HorizontalOptions="Center"
+             IsVisible="False"
+             TextColor="Gray"
+             FontAttributes="Italic"/>
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>
