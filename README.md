@@ -47,10 +47,22 @@ appealing interface.
 
 ## 📄 Pages
 
-- **MainPage:** Entry point; navigate to game setup or view previous games.
-- **GameSetUpPage:** Configure game options before starting.
-- **GamePage:** Play the math game, answer questions, and see your score.
+- **MainPage:** Entry point; navigate to game setup or view previous games. <br>
+
+  ![Main Game Page](image.png) <br>
+
+- **GameSetUpPage:** Configure game options before starting. <br>
+  ![Game Setup page](image-2.png) <br>
+
+- **GamePage:** Play the math game, answer questions, and see your score. <br>
+  ![Game Page](image-3.png) <br> ![Game Page Results](image-4.png)
+
+<br>
 - **PreviousGamesPage:** Review your past games and scores.
+ <br>
+
+![Game History](image-1.png) <br>
+
 - **AppShell:** Manages navigation between pages.
 
 ---
