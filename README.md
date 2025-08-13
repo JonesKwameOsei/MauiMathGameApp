@@ -1,8 +1,7 @@
 # 📲 MauiMathGameApp
 
 A cross-platform math game app built with .NET MAUI and C#. Challenge your math
-skills, track your progress, and enjoy a beautiful, modern UI on Android, iOS,
-Windows, Mac, and more!
+skills, track your progress, and enjoy a beautiful, modern UI on Windows !
 
 ---
 
@@ -28,7 +27,7 @@ appealing interface.
 
 - 🟦 .NET MAUI
 - 🧑‍💻 C#
-- 📱 Android, iOS, Windows, MacCatalyst, Tizen
+- 📱 Windows
 - 🎨 XAML (UI)
 <!-- - 🗂️ MVVM Architecture -->
 
@@ -70,20 +69,19 @@ appealing interface.
 
 ## 🛠️ Tech Stack
 
-| Icon | Technology          |
-| ---- | ------------------- |
-| 🟦   | .NET MAUI           |
-| 🧑‍💻   | C#                  |
-| 📱   | Android/iOS         |
-| 🖥️   | Windows/MacCatalyst |
-| 🎨   | XAML                |
+| Icon | Technology |
+| ---- | ---------- |
+| 🟦   | .NET MAUI  |
+| 🧑‍💻   | C#         |
+| 🖥️   | Windows    |
+| 🎨   | XAML       |
 
 ---
 
 ## 🌱 Skills Gained
 
 - Cross-platform mobile & desktop development
-- MVVM architecture and data binding
+- data binding in .NET MAUI applications
 - XAML UI design and customization
 - Game logic implementation in C#
 - Resource management (fonts, images, styles)
